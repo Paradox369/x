@@ -18,7 +18,7 @@ defmodule XWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :home
-    live "/test", TestLive
+    live "/test", Live.TestLive
   end
 
   # Other scopes may use custom stacks.
