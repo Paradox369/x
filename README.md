@@ -16,3 +16,11 @@ Ready to run in production? Please [check our deployment guides](https://hexdocs
 - Docs: https://hexdocs.pm/phoenix
 - Forum: https://elixirforum.com/c/phoenix-forum
 - Source: https://github.com/phoenixframework/phoenix
+
+# Note:
+
+- For the project to display full onmy screen, I removed the classes from the root.html.heex file.
+  The original body is commented above.
+  I also removed the original template in the app.html.heex file, commented it and replaced it with
+  a plain div.
+- Revert these changes if necessary
