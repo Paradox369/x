@@ -4,6 +4,12 @@ defmodule XWeb.Live.ContentArea do
 
   alias XWeb.Components.CustomComponents
 
+  def mount(socket) do
+    form = to_form(%{"file_search" => ""})
+
+    {:ok, assign(socket, :form, form)}
+  end
+
   def render(assigns) do
     ~H"""
     <div class="flex flex-1 flex-col overflow-hidden">
@@ -17,30 +23,31 @@ defmodule XWeb.Live.ContentArea do
             </CustomComponents.button>
             <div class="flex flex-1 justify-between px-4 sm:px-6">
               <div class="flex flex-1">
-                <form class="flex w-full md:ml-0" action="#" method="GET">
-                  <label for="desktop-search-field" class="sr-only">Search all files</label>
-                  <label for="mobile-search-field" class="sr-only">Search all files</label>
+                <.form class="flex w-full md:ml-0" action="#" method="GET" for={@form}>
+                  <.label for="desktop-search-field" class="sr-only">Search all files</.label>
+                  <.label for="mobile-search-field" class="sr-only">Search all files</.label>
                   <div class="relative w-full text-gray-400 focus-within:text-gray-600">
                     <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center">
                       <svg class="h-5 w-5 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                         <path fill-rule="evenodd" d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z" clip-rule="evenodd" />
                       </svg>
                     </div>
-                    <input name="mobile-search-field"
-                      id="mobile-search-field"
-                      class="h-full w-full border-0 py-2 pl-8 pr-3 text-base text-gray-900 focus:outline-none focus:ring-0 focus:placeholder:text-gray-400 sm:hidden"
-                      placeholder="Search"
-                      type="search"
+                    <.input name="mobile-search-field"
+                            id="mobile-search-field"
+                            class="h-full w-full border-0 py-2 pl-8 pr-3 text-base text-gray-900 focus:outline-none focus:ring-0 focus:placeholder:text-gray-400 sm:hidden"
+                            placeholder="Search"
+                            type="search"
+                            field={@form["file_search"]}
                     />
-                    <input
-                      name="desktop-search-field"
-                      id="desktop-search-field"
-                      class="hidden h-full w-full border-0 py-2 pl-8 pr-3 text-sm text-gray-900 focus:outline-none focus:ring-0 focus:placeholder:text-gray-400 sm:block"
-                      placeholder="Search all files"
-                      type="search"
-                    >
+                    <.input name="desktop-search-field"
+                            id="desktop-search-field"
+                            class="hidden h-full w-full border-0 py-2 pl-8 pr-3 text-sm text-gray-900 focus:outline-none focus:ring-0 focus:placeholder:text-gray-400 sm:block"
+                            placeholder="Search all files"
+                            type="search"
+                            field={@form["file_search"]}
+                    />
                   </div>
-                </form>
+                </.form>
               </div>
               <div class="ml-2 flex items-center space-x-4 sm:ml-6 sm:space-x-6">
                 <!-- Profile dropdown -->
