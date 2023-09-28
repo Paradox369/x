@@ -1,6 +1,8 @@
 defmodule XWeb.Live.MobileMenu do
   use XWeb, :live_component
 
+  alias XWeb.Components.CustomComponents
+
   def render(assigns) do
     ~H"""
     <div class="relative z-40 md:hidden" role="dialog" aria-modal="true">
@@ -39,17 +41,15 @@ defmodule XWeb.Live.MobileMenu do
                 To: "opacity-0"
             -->
             <div class="absolute right-0 top-1 -mr-14 p-1">
-              <button type="button" class="flex h-12 w-12 items-center justify-center rounded-full focus:outline-none focus:ring-2 focus:ring-white">
+              <.button type="button" class="flex h-12 w-12 items-center justify-center rounded-full focus:outline-none focus:ring-2 focus:ring-white">
                 <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
                 </svg>
                 <span class="sr-only">Close sidebar</span>
-              </button>
+              </.button>
             </div>
 
-            <div class="flex flex-shrink-0 items-center px-4">
-              <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=white" alt="Your Company">
-            </div>
+            <CustomComponents.logo class="px-4" />
             <div class="mt-5 h-0 flex-1 overflow-y-auto px-2">
               <nav class="flex h-full flex-col">
                 <div class="space-y-1">
