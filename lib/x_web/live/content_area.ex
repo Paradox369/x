@@ -1,5 +1,9 @@
 defmodule XWeb.Live.ContentArea do
+
   use XWeb, :live_component
+
+  alias XWeb.Components.CustomComponents
+
   def render(assigns) do
     ~H"""
     <div class="flex flex-1 flex-col overflow-hidden">
@@ -172,28 +176,7 @@ defmodule XWeb.Live.ContentArea do
               </div>
               <div>
                 <h3 class="font-medium text-gray-900">Information</h3>
-                <dl class="mt-2 divide-y divide-gray-200 border-b border-t border-gray-200">
-                  <div class="flex justify-between py-3 text-sm font-medium">
-                    <dt class="text-gray-500">Uploaded by</dt>
-                    <dd class="whitespace-nowrap text-gray-900">Marie Culver</dd>
-                  </div>
-                  <div class="flex justify-between py-3 text-sm font-medium">
-                    <dt class="text-gray-500">Created</dt>
-                    <dd class="whitespace-nowrap text-gray-900">June 8, 2020</dd>
-                  </div>
-                  <div class="flex justify-between py-3 text-sm font-medium">
-                    <dt class="text-gray-500">Last modified</dt>
-                    <dd class="whitespace-nowrap text-gray-900">June 8, 2020</dd>
-                  </div>
-                  <div class="flex justify-between py-3 text-sm font-medium">
-                    <dt class="text-gray-500">Dimensions</dt>
-                    <dd class="whitespace-nowrap text-gray-900">4032 x 3024</dd>
-                  </div>
-                  <div class="flex justify-between py-3 text-sm font-medium">
-                    <dt class="text-gray-500">Resolution</dt>
-                    <dd class="whitespace-nowrap text-gray-900">72 x 72</dd>
-                  </div>
-                </dl>
+                <CustomComponents.description_list items={list_items()} />
               </div>
               <div>
                 <h3 class="font-medium text-gray-900">Description</h3>
@@ -255,5 +238,15 @@ defmodule XWeb.Live.ContentArea do
         </div>
       </div>
     """
+  end
+
+  def list_items() do
+    [
+      %{title: "Uploaded by", description: "Marie Culver"},
+      %{title: "Created", description: "June 8, 2020"},
+      %{title: "Last modified", description: "June 8, 2020"},
+      %{title: "Dimensions", description: "4032 x 3024"},
+      %{title: "Resolution", description: "72 x 72"},
+    ]
   end
 end

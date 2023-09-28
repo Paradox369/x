@@ -16,4 +16,16 @@ defmodule XWeb.Components.CustomComponents do
     </div>
     """
   end
+
+  attr :items, :list, required: true
+  def description_list(assigns) do
+    ~H"""
+      <dl class="mt-2 divide-y divide-gray-200 border-b border-t border-gray-200">
+        <div :for={item <- @items} class="flex justify-between py-3 text-sm font-medium">
+          <dt class="text-gray-500"><%= item.title %></dt>
+          <dd class="whitespace-nowrap text-gray-900"><%= item.description || "-" %></dd>
+        </div>
+      </dl>
+    """
+  end
 end
