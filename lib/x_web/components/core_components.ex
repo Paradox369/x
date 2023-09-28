@@ -179,7 +179,7 @@ defmodule XWeb.CoreComponents do
         <.input field={@form[:email]} label="Email"/>
         <.input field={@form[:username]} label="Username" />
         <:actions>
-          <.button>Save</.button>
+          <CustomComponents.button>Save</CustomComponents.button>
         </:actions>
       </.simple_form>
   """
@@ -211,8 +211,8 @@ defmodule XWeb.CoreComponents do
 
   ## Examples
 
-      <.button>Send!</.button>
-      <.button phx-click="go" class="ml-2">Send!</.button>
+      <CustomComponents.button>Send!</CustomComponents.button>
+      <CustomComponents.button phx-click="go" class="ml-2">Send!</CustomComponents.button>
   """
   attr :type, :string, default: nil
   attr :class, :string, default: nil

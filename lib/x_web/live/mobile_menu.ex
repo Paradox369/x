@@ -41,12 +41,12 @@ defmodule XWeb.Live.MobileMenu do
                 To: "opacity-0"
             -->
             <div class="absolute right-0 top-1 -mr-14 p-1">
-              <.button type="button" class="flex h-12 w-12 items-center justify-center rounded-full focus:outline-none focus:ring-2 focus:ring-white">
+              <CustomComponents.button type="button" class="flex h-12 w-12 items-center justify-center rounded-full focus:outline-none focus:ring-2 focus:ring-white">
                 <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
                 </svg>
                 <span class="sr-only">Close sidebar</span>
-              </.button>
+              </CustomComponents.button>
             </div>
 
             <CustomComponents.logo class="px-4" />

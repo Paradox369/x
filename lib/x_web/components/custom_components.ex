@@ -17,6 +17,17 @@ defmodule XWeb.Components.CustomComponents do
     """
   end
 
+  attr :type, :string, default: "button"
+  attr :class, :string
+  slot :inner_block, required: true
+  def button(assigns) do
+    ~H"""
+    <button type={@type} class={@class}>
+      <%= render_slot(@inner_block) %>
+    </button>
+    """
+  end
+
   attr :items, :list, required: true
   def description_list(assigns) do
     ~H"""
