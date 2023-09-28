@@ -116,11 +116,15 @@ defmodule XWeb.Live.ContentArea do
                 <div class="sm:hidden">
                   <label for="tabs" class="sr-only">Select a tab</label>
                   <!-- Use an "onChange" listener to redirect the user to the selected tab URL. -->
-                  <select id="tabs" name="tabs" class="block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-inset focus:ring-indigo-600">
-                    <option selected>Recently Viewed</option>
-                    <option>Recently Added</option>
-                    <option>Favorited</option>
-                  </select>
+                  <.input type="select"
+                          label="Select a tab"
+                          for="tabs"
+                          class="sr-only"
+                          id="tabs"
+                          name="tabs"
+                          options={options_menu()}
+                          value={options_menu()}
+                  />
                 </div>
                 <div class="hidden sm:block">
                   <div class="flex items-center border-b border-gray-200">
@@ -266,5 +270,9 @@ defmodule XWeb.Live.ContentArea do
       %{title: "Dimensions", description: "4032 x 3024"},
       %{title: "Resolution", description: "72 x 72"},
     ]
+  end
+
+  def options_menu() do
+    ["Recently Viewed", "Recently Added", "Favorited", "peee"]
   end
 end
