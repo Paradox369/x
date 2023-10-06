@@ -118,7 +118,6 @@ defmodule XWeb.Live.ContentArea do
                   <!-- Use an "onChange" listener to redirect the user to the selected tab URL. -->
                   <.input type="select"
                           label="Select a tab"
-                          for="tabs"
                           class="sr-only"
                           id="tabs"
                           name="tabs"
@@ -155,22 +154,7 @@ defmodule XWeb.Live.ContentArea do
               <!-- Gallery -->
               <section class="mt-8 pb-16" aria-labelledby="gallery-heading">
                 <h2 id="gallery-heading" class="sr-only">Recently viewed</h2>
-                <ul role="list" class="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-x-6 md:grid-cols-4 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
-                  <li class="relative">
-                    <!-- Current: "ring-2 ring-indigo-500 ring-offset-2", Default: "focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 focus-within:ring-offset-gray-100" -->
-                    <div class="ring-2 ring-indigo-500 ring-offset-2 aspect-w-10 aspect-h-7 group block w-full overflow-hidden rounded-lg bg-gray-100">
-                      <!-- Current: "", Default: "group-hover:opacity-75" -->
-                      <img src="https://images.unsplash.com/photo-1582053433976-25c00369fc93?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=512&q=80" alt="" class="pointer-events-none object-cover">
-                      <CustomComponents.button type="button" class="absolute inset-0 focus:outline-none">
-                        <span class="sr-only">View details for IMG_4985.HEIC</span>
-                      </CustomComponents.button>
-                    </div>
-                    <p class="pointer-events-none mt-2 block truncate text-sm font-medium text-gray-900">IMG_4985.HEIC</p>
-                    <p class="pointer-events-none block text-sm font-medium text-gray-500">3.9 MB</p>
-                  </li>
-
-                  <!-- More files... -->
-                </ul>
+                <CustomComponents.gallery />
               </section>
             </div>
           </main>
